@@ -9,11 +9,19 @@ import { Recurso } from '../models/recurso.model';
   providedIn: 'root'
 })
 export class CrudService {
-  API: string='https://jsonplaceholder.typicode.com/posts'
+  API: string='https://jsonplaceholder.typicode.com/'
   
   constructor(private clientHttp:HttpClient) { }
 
   AgregarRecurso(datosRecurso:Recurso):Observable<any>{
-    return this.clientHttp.post(this.API, datosRecurso)
+    return this.clientHttp.post(this.API+"posts", datosRecurso)
+  }
+
+  ObtenerRecursos(){
+    return this.clientHttp.get(this.API+"posts")
+  }
+
+  EliminarRecurso(id:any):Observable<any>{
+    return this.clientHttp.delete(this.API+"posts/"+id)
   }
 }

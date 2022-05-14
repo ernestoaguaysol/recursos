@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { CrudService } from '../services/crud.service';
+
 @Component({
   selector: 'app-listar-recurso',
   templateUrl: './listar-recurso.component.html',
@@ -7,9 +9,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListarRecursoComponent implements OnInit {
 
-  constructor() { }
+  Recursos:any;
+
+  constructor(
+    private crudService:CrudService
+  ) { }
 
   ngOnInit(): void {
+    this.crudService.ObtenerRecursos().subscribe(res => {
+      console.log(res);
+      this.Recursos=res
+    })
+  }
+
+  eliminarRecurso(id:any, iControl:any){
+    console.log(id);
+    console.log(iControl);
+    if (window.confirm("¿Desea eliminar este recurso?")) {
+      this.crudService.EliminarRecurso(id).subscribe(res => {
+        console.log(res);
+        this.Recursos.splice(iControl,1)
+      })
+    }
   }
 
 }

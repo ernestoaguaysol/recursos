@@ -15,14 +15,14 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Proyector</td>
-                <td>345346535</td>
+            <tr *ngFor="let recurso of Recursos; let iControl=index">
+            <th scope="row">{{recurso.id}}</th>
+                <td>{{recurso.title}}</td>
+                <td>{{recurso.userId}}</td>
                 <td>
                     <div class="btn-group">
-                        <a routerLink="/editar-recurso/1" class="btn btn-primary">Editar</a>
-                        <a routerLink="/editar-recurso/1" class="btn btn-danger">Eliminar</a>
+                        <a class="btn btn-info" routerLink="/editar-recurso/{{recurso.id}}">Editar</a>
+                        <a class="btn btn-danger" (click)="eliminarRecurso(recurso.id, iControl)">Eliminar</a>
                     </div>
                 </td>
             </tr>
