@@ -1,0 +1,21 @@
+<h2>Agregar Recurso</h2>
+<div class="row">
+    <form [formGroup]="formularioDeRecurso" (ngSubmit)="enviarDatos()">
+        <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input type="text" formControlName="nombre" class="form-control" id="nombre" placeholder="Nombre">
+        </div>
+        <div class="mb-3">
+            <label for="codigo" class="form-label">Codigo</label>
+            <input type="number" formControlName="codigo" class="form-control" id="codigo">
+        </div>
+        <div class="mb-3">
+            <label for="descripcion" class="form-label">Descripción</label>
+            <textarea class="form-control" id="descripcion" rows="3"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-success m-1">Agregar</button>
+        <button type="button" class="btn btn-danger m-1">Cancelar</button>
+        
+    </form>
+</div>
