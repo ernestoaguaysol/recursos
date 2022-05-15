@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder } from '@angular/forms';
 
-import { CrudService } from '../services/crud.service';
+import { ApiService } from '../../../services/api.service';
 
 @Component({
   selector: 'app-editar-recurso',
@@ -15,7 +15,7 @@ export class EditarRecursoComponent implements OnInit {
 
   constructor(
     private activeRoute:ActivatedRoute,
-    private crudService:CrudService,
+    private apiService:ApiService,
     public formulario:FormBuilder,
     public router:Router,
   ) {
@@ -23,7 +23,7 @@ export class EditarRecursoComponent implements OnInit {
     this.recursoId=this.activeRoute.snapshot.paramMap.get('id')
     // console.log(this.recursoId);
     
-    this.crudService.ObtenerRecurso(this.recursoId).subscribe(res => {
+    this.apiService.ObtenerRecurso(this.recursoId).subscribe(res => {
       console.log(res);
       this.formularioDeRecurso.setValue({
         nombre:res['title'],
@@ -46,7 +46,7 @@ export class EditarRecursoComponent implements OnInit {
   enviarDatos():any{
     console.log(this.recursoId);
     console.log(this.formularioDeRecurso.value);
-    this.crudService.EditarRecurso(
+    this.apiService.EditarRecurso(
       this.recursoId,
       this.formularioDeRecurso.value
     )

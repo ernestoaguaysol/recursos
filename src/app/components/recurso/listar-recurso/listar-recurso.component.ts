@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { CrudService } from '../services/crud.service';
+import { ApiService } from '../../../services/api.service';
 
 @Component({
   selector: 'app-listar-recurso',
@@ -12,11 +12,11 @@ export class ListarRecursoComponent implements OnInit {
   Recursos:any;
 
   constructor(
-    private crudService:CrudService
+    private apiService:ApiService
   ) { }
 
   ngOnInit(): void {
-    this.crudService.ObtenerRecursos().subscribe(res => {
+    this.apiService.ObtenerRecursos().subscribe(res => {
       console.log(res);
       this.Recursos=res
     })
@@ -26,7 +26,7 @@ export class ListarRecursoComponent implements OnInit {
     console.log(id);
     console.log(iControl);
     if (window.confirm("¿Desea eliminar este recurso?")) {
-      this.crudService.EliminarRecurso(id).subscribe(res => {
+      this.apiService.EliminarRecurso(id).subscribe(res => {
         console.log(res);
         this.Recursos.splice(iControl,1)
       })

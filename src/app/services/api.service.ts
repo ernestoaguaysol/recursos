@@ -8,7 +8,8 @@ import { Recurso } from '../models/recurso.model';
 @Injectable({
   providedIn: 'root'
 })
-export class CrudService {
+export class ApiService {
+
   API: string='https://jsonplaceholder.typicode.com/'
   
   constructor(private clientHttp:HttpClient) { }
@@ -32,5 +33,4 @@ export class CrudService {
   EditarRecurso(id:any,datosRecurso:Recurso):Observable<any>{
     return this.clientHttp.put(this.API+"posts/"+id, datosRecurso)
   }
-
 }

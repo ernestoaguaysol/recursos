@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 
-import { CrudService } from '../services/crud.service';
+import { ApiService } from '../../../services/api.service';
 
 @Component({
   selector: 'app-agregar-recurso',
@@ -14,7 +14,7 @@ export class AgregarRecursoComponent implements OnInit {
 
   constructor(
     public formulario:FormBuilder,
-    private crudService:CrudService
+    private apiService:ApiService
     ) {
     this.formularioDeRecurso=this.formulario.group({
       nombre:[''],
@@ -28,7 +28,7 @@ export class AgregarRecursoComponent implements OnInit {
   enviarDatos(): any {
     console.log('Entra a enviarDatos');
     console.log(this.formularioDeRecurso.value.nombre);
-    this.crudService.AgregarRecurso({
+    this.apiService.AgregarRecurso({
       id: 1,
       title: this.formularioDeRecurso.value.nombre,
       body: this.formularioDeRecurso.value.nombre,
