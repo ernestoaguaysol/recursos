@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { FormGroup, FormBuilder } from '@angular/forms';
 
 import { ApiService } from '../../../services/api.service';
@@ -14,11 +15,12 @@ export class AgregarRecursoComponent implements OnInit {
 
   constructor(
     public formulario:FormBuilder,
-    private apiService:ApiService
+    private apiService:ApiService,
+    private router:Router
     ) {
     this.formularioDeRecurso=this.formulario.group({
       nombre:[''],
-      codigo:['']
+      descipcion:['']
     })
   }
 
@@ -27,14 +29,9 @@ export class AgregarRecursoComponent implements OnInit {
 
   enviarDatos(): any {
     console.log('Entra a enviarDatos');
-    console.log(this.formularioDeRecurso.value.nombre);
-    this.apiService.AgregarRecurso({
-      id: 1,
-      title: this.formularioDeRecurso.value.nombre,
-      body: this.formularioDeRecurso.value.nombre,
-      userId: this.formularioDeRecurso.value.codigo
-    })
-    .subscribe()
+    console.log(this.formularioDeRecurso.value);
+    this.apiService.AgregarRecurso(this.formularioDeRecurso.value).subscribe()
+    this.router.navigateByUrl('/recursos')
   }
 
 }

@@ -1,6 +1,6 @@
 export interface Recurso {
-    id: number,
-    title: string,
-    body: string,
-    userId: number
+    recurso_id?: number,
+    nombre: string,
+    descripcion: string,
+    detalle_agenda?: string[]
 }

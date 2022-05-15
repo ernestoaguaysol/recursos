@@ -8,15 +8,15 @@
             <tr>
             <th scope="col">#</th>
             <th scope="col">Nombre</th>
-            <th scope="col">Código</th>
+            <th scope="col">Descripción</th>
             <th scope="col">Opciones</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let recurso of Recursos; let iControl=index">
-            <th scope="row">{{recurso.id}}</th>
-                <td>{{recurso.title}}</td>
-                <td>{{recurso.userId}}</td>
+            <th scope="row">{{recurso.recurso_id}}</th>
+                <td>{{recurso.nombre}}</td>
+                <td>{{recurso.descripcion}}</td>
                 <td>
                     <div class="btn-group">
                         <a class="btn btn-info" routerLink="/recursos/editar/{{recurso.id}}">Editar</a>

@@ -10,16 +10,16 @@ import { Recurso } from '../models/recurso.model';
 })
 export class ApiService {
 
-  API: string='https://jsonplaceholder.typicode.com/'
+  API: string='http://localhost:8090'
   
   constructor(private clientHttp:HttpClient) { }
 
-  AgregarRecurso(datosRecurso:Recurso):Observable<any>{
-    return this.clientHttp.post(this.API+"posts", datosRecurso)
+  ObtenerRecursos(){
+    return this.clientHttp.get(this.API+"/api/recursos")
   }
 
-  ObtenerRecursos(){
-    return this.clientHttp.get(this.API+"posts")
+  AgregarRecurso(datosRecurso:Recurso):Observable<any>{
+    return this.clientHttp.post(this.API+"/api/recursos", datosRecurso)
   }
 
   EliminarRecurso(id:any):Observable<any>{
