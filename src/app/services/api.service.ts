@@ -23,7 +23,7 @@ export class ApiService {
   }
 
   EliminarRecurso(id:any):Observable<any>{
-    return this.clientHttp.delete(this.API+"posts/"+id)
+    return this.clientHttp.delete(this.API+"/api/recursos/"+id)
   }
 
   ObtenerRecurso(id:any):Observable<any>{
