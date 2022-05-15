@@ -1,8 +1,6 @@
 <h2>Lista de recursos</h2>
 
-<!-- <a class="btn btn-primary" routerLink="agregar-recurso" role="button">Agregar recurso</a>
-<a class="btn btn-primary" routerLink="agregar-recurso" role="button">Link</a>
-<button type="button" class="btn btn-primary">Primary</button> -->
+<a class="btn btn-success" routerLink="/recursos/agregar">Agregar</a>
 
 <div class="row">
     <table class="table">
@@ -21,7 +19,7 @@
                 <td>{{recurso.userId}}</td>
                 <td>
                     <div class="btn-group">
-                        <a class="btn btn-info" routerLink="/editar-recurso/{{recurso.id}}">Editar</a>
+                        <a class="btn btn-info" routerLink="/recursos/editar/{{recurso.id}}">Editar</a>
                         <a class="btn btn-danger" (click)="eliminarRecurso(recurso.id, iControl)">Eliminar</a>
                     </div>
                 </td>

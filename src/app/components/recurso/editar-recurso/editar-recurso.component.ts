@@ -51,7 +51,7 @@ export class EditarRecursoComponent implements OnInit {
       this.formularioDeRecurso.value
     )
     .subscribe(() => {
-      this.router.navigateByUrl('/listar-recurso')
+      this.router.navigateByUrl('/recursos')
     })
     
   }

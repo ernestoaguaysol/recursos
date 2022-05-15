@@ -7,10 +7,10 @@ import { EditarRecursoComponent } from './components/recurso/editar-recurso/edit
 import { ListarRecursoComponent } from './components/recurso/listar-recurso/listar-recurso.component';
 
 const routes: Routes = [
-  {path: '', pathMatch:'full', redirectTo:'agregar-recurso'},
-  {path: 'agregar-recurso', component:AgregarRecursoComponent},
-  {path: 'listar-recurso', component:ListarRecursoComponent},
-  {path: 'editar-recurso/:id', component:EditarRecursoComponent},
+  {path: '', pathMatch:'full', redirectTo:'recursos'},
+  {path: 'recursos', component:ListarRecursoComponent},
+  {path: 'recursos/agregar', component:AgregarRecursoComponent},
+  {path: 'recursos/editar/:id', component:EditarRecursoComponent},
 ];
 
 @NgModule({
