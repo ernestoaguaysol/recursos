@@ -24,4 +24,13 @@ export class CrudService {
   EliminarRecurso(id:any):Observable<any>{
     return this.clientHttp.delete(this.API+"posts/"+id)
   }
+
+  ObtenerRecurso(id:any):Observable<any>{
+    return this.clientHttp.get(this.API+"posts/"+id)
+  }
+
+  EditarRecurso(id:any,datosRecurso:Recurso):Observable<any>{
+    return this.clientHttp.put(this.API+"posts/"+id, datosRecurso)
+  }
+
 }
