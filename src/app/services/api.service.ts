@@ -27,10 +27,10 @@ export class ApiService {
   }
 
   ObtenerRecurso(id:any):Observable<any>{
-    return this.clientHttp.get(this.API+"posts/"+id)
+    return this.clientHttp.get(this.API+"/api/recursos/"+id)
   }
 
   EditarRecurso(id:any,datosRecurso:Recurso):Observable<any>{
-    return this.clientHttp.put(this.API+"posts/"+id, datosRecurso)
+    return this.clientHttp.put(this.API+"/api/recursos/"+id, datosRecurso)
   }
 }

@@ -26,15 +26,13 @@ export class EditarRecursoComponent implements OnInit {
     this.apiService.ObtenerRecurso(this.recursoId).subscribe(res => {
       console.log(res);
       this.formularioDeRecurso.setValue({
-        nombre:res['title'],
-        codigo:res['userId'],
-        descripcion:res['body']
+        nombre:res['nombre'],
+        descripcion:res['descripcion']
       })  
     })
 
     this.formularioDeRecurso=this.formulario.group({
       nombre:[''],
-      codigo:[''],
       descripcion:['']
     })
 
