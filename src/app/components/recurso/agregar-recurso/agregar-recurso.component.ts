@@ -20,7 +20,7 @@ export class AgregarRecursoComponent implements OnInit {
     ) {
     this.formularioDeRecurso=this.formulario.group({
       nombre:[''],
-      descipcion:['']
+      descripcion:['']
     })
   }
 
